@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF样式收集", "WPF样式收集\WPF样式收集.csproj", "{0853910B-7F9E-4BCD-A7F9-2B27419DFDCF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0853910B-7F9E-4BCD-A7F9-2B27419DFDCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0853910B-7F9E-4BCD-A7F9-2B27419DFDCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0853910B-7F9E-4BCD-A7F9-2B27419DFDCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0853910B-7F9E-4BCD-A7F9-2B27419DFDCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {424C1985-353A-4BFD-971B-F9AA94CF63F6}
+	EndGlobalSection
+EndGlobal
