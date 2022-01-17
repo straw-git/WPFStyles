@@ -1,0 +1,252 @@
+﻿<Page x:Class="WPF样式收集.Pages._3D翻转.Index"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF样式收集.Pages._3D翻转"
+      xmlns:s="clr-namespace:System;assembly=mscorlib"
+     Height="600" Width="700" Unloaded="Page_Unloaded"
+      Title="Index">
+    <Page.Resources>
+        <x:Array Type="{x:Type s:String}" x:Key="src">
+            <s:String>Foo</s:String>
+            <s:String>Bar</s:String>
+            <s:String>Spong</s:String>
+            <s:String>One</s:String>
+            <s:String>Two</s:String>
+            <s:String>Three</s:String>
+            <s:String>Four</s:String>
+            <s:String>Five</s:String>
+        </x:Array>
+
+
+        <DataTemplate x:Key="frontTemplate">
+            <GroupBox Header="Front" Background="White">
+                <TextBlock FontSize="40" Foreground="Green" Text="{Binding}" />
+            </GroupBox>
+        </DataTemplate>
+
+        <DataTemplate x:Key="backTemplate">
+            <GroupBox Header="Back" Background="White">
+                <StackPanel>
+                    <RadioButton Content="This" IsChecked="True" />
+                    <RadioButton Content="Is" />
+                    <RadioButton Content="The" />
+                    <RadioButton Content="Back" />
+                </StackPanel>
+            </GroupBox>
+        </DataTemplate>
+
+        <DataTemplate x:Key="flipItemTemplate">
+
+            <!-- Note: Camera setup only works when this is square. -->
+            <Grid Width="200" Height="200">
+
+                <!-- Provides 3D rotation transition. Hidden except for when animation is
+       active. -->
+                <Viewport3D Grid.Column="0" x:Name="vp3D" Visibility="Hidden">
+                    <Viewport3D.Camera>
+                        <PerspectiveCamera x:Name="camera" Position="0,0,0.5" LookDirection="0,0,-1" FieldOfView="90" />
+                    </Viewport3D.Camera>
+
+                    <Viewport3D.Children>
+
+                        <ModelVisual3D>
+                            <ModelVisual3D.Content>
+                                <Model3DGroup>
+                                    <DirectionalLight Color="#444" Direction="0,0,-1" />
+                                    <AmbientLight Color="#BBB" />
+                                </Model3DGroup>
+                            </ModelVisual3D.Content>
+                        </ModelVisual3D>
+                        <ModelVisual3D>
+                            <ModelVisual3D.Content>
+                                <GeometryModel3D>
+
+
+                                    <!-- Simple flat, square surface -->
+                                    <GeometryModel3D.Geometry>
+                                        <MeshGeometry3D
+                     TriangleIndices="0,1,2 2,3,0"
+                     TextureCoordinates="0,1 1,1 1,0 0,0"
+                     Positions="-0.5,-0.5,0 0.5,-0.5,0 0.5,0.5,0 -0.5,0.5,0" />
+                                    </GeometryModel3D.Geometry>
+
+
+                                    <!-- Front of shape shows the content of 'frontHost' -->
+                                    <GeometryModel3D.Material>
+                                        <DiffuseMaterial>
+                                            <DiffuseMaterial.Brush>
+                                                <VisualBrush Visual="{Binding ElementName=frontHost}" />
+                                            </DiffuseMaterial.Brush>
+                                        </DiffuseMaterial>
+                                    </GeometryModel3D.Material>
+
+
+                                    <!-- Back of shape shows the content of 'backHost' -->
+                                    <GeometryModel3D.BackMaterial>
+                                        <DiffuseMaterial>
+                                            <DiffuseMaterial.Brush>
+                                                <VisualBrush Visual="{Binding ElementName=backHost}">
+                                                    <VisualBrush.RelativeTransform>
+                                                        <!-- By default, this would come out backwards because we're on the
+                                   back on the shape. Flip it to make it right. -->
+                                                        <ScaleTransform ScaleX="-1" CenterX="0.5" />
+                                                    </VisualBrush.RelativeTransform>
+                                                </VisualBrush>
+                                            </DiffuseMaterial.Brush>
+                                        </DiffuseMaterial>
+                                    </GeometryModel3D.BackMaterial>
+
+                                    <!-- Rotation transform used for transition. -->
+                                    <GeometryModel3D.Transform>
+                                        <RotateTransform3D>
+                                            <RotateTransform3D.Rotation>
+                                                <AxisAngleRotation3D x:Name="rotate" Axis="0,3,0" Angle="0" />
+                                            </RotateTransform3D.Rotation>
+                                        </RotateTransform3D>
+                                    </GeometryModel3D.Transform>
+                                </GeometryModel3D>
+                            </ModelVisual3D.Content>
+                        </ModelVisual3D>
+                    </Viewport3D.Children>
+
+                </Viewport3D>
+
+                <!-- We use a pair of nested Borders to wrap the content that's going to go on
+       each side of the rotating model.
+       The reason is that we need to be able to fade these real bits of UI in and out
+       as we transition from front to back, but we need to make sure the VisualBrush
+       in the 3D model doesn't also get faded out. So the VisualBrush uses the inner
+       Border, while the fade is applied to the outer one.
+  -->
+                <Border x:Name="frontWrapper">
+                    <!-- Note, it's important that this element has visuals that completely fill the space, as
+       otherwise it messes with the VisualBrush's size in the 3D model. Setting the background
+       has that effect, even a transparent one. -->
+                    <Border x:Name="frontHost" Background="Transparent">
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="Grid.MouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <!-- Make the Viewport3D visible only for the duration of the rotation. -->
+                                        <ObjectAnimationUsingKeyFrames
+                           Storyboard.TargetName="vp3D"
+                           Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:1.1" Value="{x:Static Visibility.Hidden}" />
+                                        </ObjectAnimationUsingKeyFrames>
+
+                                        <!-- Make the background element visible. (It won't actually appear until it is
+                 faded in right at the end of the animation.) -->
+                                        <ObjectAnimationUsingKeyFrames
+                           Storyboard.TargetName="backWrapper"
+                           Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+
+
+                                        <!-- Hide the foreground element. It will already be invisible by this time
+                 because we fade it out right at the start of the animation. However, until
+                 we set its Visibility to Hidden, it will still be visible to the mouse... -->
+                                        <ObjectAnimationUsingKeyFrames
+                           Storyboard.TargetName="frontWrapper"
+                           Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.05" Value="{x:Static Visibility.Hidden}" />
+                                        </ObjectAnimationUsingKeyFrames>
+
+
+                                        <!-- Fade the front wrapper out. The Viewport3D is behind us, so it'll fade into
+                 view at this point. The reason for fading is to avoid a visible step as we
+                 switch from the real UI to the copy projected onto the 3D model. -->
+                                        <DoubleAnimation To="0" Duration="0:0:0.05"
+                           Storyboard.TargetName="frontWrapper"
+                           Storyboard.TargetProperty="Opacity" />
+
+                                        <!-- Fade the back wrapper in. Once the spin completes, we fade the real back UI
+                 in over the Viewport3D - using a fade to avoid a sudden jolt between the
+                 slightly fuzzy 3D look and the real UI. -->
+                                        <DoubleAnimation BeginTime="0:0:1.05" Duration="0:0:0.05" To="1"
+                           Storyboard.TargetName="backWrapper"
+                           Storyboard.TargetProperty="Opacity" />
+
+                                        <!-- 3D animation. Move the camera out slightly as we spin, so the model fits entirely
+                 within the field of view. Rotate the model 180 degrees. -->
+                                        <Point3DAnimation To="0,0,1.1" From="0,0,0.5"
+                           BeginTime="0:0:0.05" Duration="0:0:0.5" AutoReverse="True" DecelerationRatio="0.3"
+                           Storyboard.TargetName="camera"
+                           Storyboard.TargetProperty="(PerspectiveCamera.Position)" />
+                                        <DoubleAnimation From="0" To="180" AccelerationRatio="0.3" DecelerationRatio="0.3"
+                           BeginTime="0:0:0.05" Duration="0:0:1"
+                           Storyboard.TargetName="rotate"
+                           Storyboard.TargetProperty="Angle" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                        <ContentPresenter  Content="{Binding}" ContentTemplate="{StaticResource frontTemplate}" />
+                    </Border>
+                </Border>
+                <Border x:Name="backWrapper" Grid.Column="0"  Visibility="Hidden" Opacity="0">
+                    <Border x:Name="backHost" Background="Transparent">
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="Grid.MouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames
+                           Storyboard.TargetName="vp3D"
+                           Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:1.1" Value="{x:Static Visibility.Hidden}" />
+                                        </ObjectAnimationUsingKeyFrames>
+
+                                        <ObjectAnimationUsingKeyFrames
+                           Storyboard.TargetName="frontWrapper"
+                           Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames
+                           Storyboard.TargetName="backWrapper"
+                           Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.05" Value="{x:Static Visibility.Hidden}" />
+                                        </ObjectAnimationUsingKeyFrames>
+
+                                        <DoubleAnimation To="0" Duration="0:0:0.05"
+                           Storyboard.TargetName="backWrapper"
+                           Storyboard.TargetProperty="Opacity" />
+                                        <DoubleAnimation BeginTime="0:0:1.05" Duration="0:0:0.05"
+                           Storyboard.TargetName="frontWrapper"
+                           Storyboard.TargetProperty="Opacity" />
+
+                                        <Point3DAnimation To="0,0,1.1" From="0,0,0.5"
+                           BeginTime="0:0:0.05" Duration="0:0:0.5" AutoReverse="True" DecelerationRatio="0.3"
+                           Storyboard.TargetName="camera"
+                           Storyboard.TargetProperty="(PerspectiveCamera.Position)" />
+                                        <DoubleAnimation From="180" To="360" AccelerationRatio="0.3" DecelerationRatio="0.3"
+                           BeginTime="0:0:0.05" Duration="0:0:1"
+                           Storyboard.TargetName="rotate"
+                           Storyboard.TargetProperty="Angle" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource backTemplate}" />
+                    </Border>
+                </Border>
+
+            </Grid>
+        </DataTemplate>
+
+    </Page.Resources>
+
+    <ScrollViewer>
+        <ItemsControl ItemsSource="{StaticResource src}" ItemTemplate="{StaticResource flipItemTemplate}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+        </ItemsControl>
+    </ScrollViewer>
+</Page>

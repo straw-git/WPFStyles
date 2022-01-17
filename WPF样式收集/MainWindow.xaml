@@ -5,13 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF样式收集"
         mc:Ignorable="d"
-        Title="WPF样式收集" Height="600" Width="880">
+        WindowStartupLocation="CenterScreen"
+        Title="WPF样式收集" 
+        x:Name="mainWindow"
+        Loaded="mainWindow_Loaded" 
+        Height="600" 
+        Width="880">
     <!--Grid 600*880-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="180"/><!--Menu Item 600*180-->
             <ColumnDefinition/> <!--Page 600*700-->
         </Grid.ColumnDefinitions>
-        
+        <TreeView Grid.Column="0" x:Name="tvPages" Background="Transparent"  PreviewMouseUp="tvPages_PreviewMouseUp"/><!-- 导航 自动读取Pages文件夹下的页面 -->
+        <Frame Grid.Column="1" x:Name="mainFrame" Source="/Pages/Welcome.xaml"  NavigationUIVisibility="Hidden"/> <!--Frame内页 规定Pages文件夹中下级文件夹为名称为导航名称 Index.xaml为导航页-->
     </Grid>
 </Window>
