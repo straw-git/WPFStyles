@@ -4,20 +4,64 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF样式收集"
-        mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen"
         Title="WPF样式收集" 
         x:Name="mainWindow"
-        Loaded="mainWindow_Loaded" 
         Height="600" 
-        Width="880">
-    <!--Grid 600*880-->
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="180"/><!--Menu Item 600*180-->
-            <ColumnDefinition/> <!--Page 600*700-->
-        </Grid.ColumnDefinitions>
-        <TreeView Grid.Column="0" x:Name="tvPages" Background="Transparent"  PreviewMouseUp="tvPages_PreviewMouseUp"/><!-- 导航 自动读取Pages文件夹下的页面 -->
-        <Frame Grid.Column="1" x:Name="mainFrame" Source="/Pages/Welcome.xaml"  NavigationUIVisibility="Hidden"/> <!--Frame内页 规定Pages文件夹中下级文件夹为名称为导航名称 Index.xaml为导航页-->
-    </Grid>
+        Width="880"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+         AllowsTransparency="True" 
+        WindowStartupLocation="CenterScreen">
+
+    <Border x:Name="wb" Background="White" Margin="5" BorderThickness="1" BorderBrush="Black">
+        <!--Border颜色渐变 未使用-->
+        <!--<Border.Background>
+            <LinearGradientBrush EndPoint="0.8,1" StartPoint="0.33,0">
+                <GradientStop Color="White" Offset="0"/>
+                <GradientStop Color="#FF084168" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>-->
+        <Border.Clip>
+            <GeometryGroup FillRule="Nonzero">
+                <RectangleGeometry x:Name="r1" Rect="0,150,880,100"/>
+                <RectangleGeometry x:Name="r2" Rect="0,400,880,100"/>
+                <RectangleGeometry x:Name="r3" Rect="80,0,90,880"/>
+                <RectangleGeometry x:Name="r4" Rect="360,0,100,880"/>
+            </GeometryGroup>
+        </Border.Clip>
+        <!--Grid 600*880-->
+        <Grid x:Name="root">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <!--Menu Item 600*180-->
+                <ColumnDefinition/>
+                <!--Page 600*700-->
+            </Grid.ColumnDefinitions>
+            <!-- 导航 自动读取Pages文件夹下的页面 -->
+            <TreeView Grid.Column="0" Margin="0,20,0,0" x:Name="tvPages" Background="Transparent"  PreviewMouseUp="tvPages_PreviewMouseUp"/>
+            <!--Frame内页 规定Pages文件夹中下级文件夹为名称为导航名称 Index.xaml为导航页-->
+            <Frame Grid.Column="1" x:Name="mainFrame" Source="/Pages/Welcome.xaml"  NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </Border>
+    <Window.RenderTransform>
+        <TransformGroup>
+            <RotateTransform x:Name="rt" Angle="0"/>
+            <ScaleTransform x:Name="sct" ScaleX="1" ScaleY="1"/>
+        </TransformGroup>
+    </Window.RenderTransform>
+    <Window.Resources>
+        <Storyboard x:Key="start">
+            <RectAnimation Storyboard.TargetName="r1" Storyboard.TargetProperty="Rect"  
+                           Duration="0:0:1" To="0,0,880,880"/>
+            <RectAnimation Storyboard.TargetName="r2" Storyboard.TargetProperty="Rect"  
+                           Duration="0:0:1" To="20,20,500,700"/>
+            <RectAnimation Storyboard.TargetName="r3" Storyboard.TargetProperty="Rect"  
+                           Duration="0:0:1" To="85,0,750,600"/>
+            <RectAnimation Storyboard.TargetName="r4" Storyboard.TargetProperty="Rect"  
+                           Duration="0:0:1" To="0,250,700,600"/>
+            <DoubleAnimation Storyboard.TargetName="wb" Storyboard.TargetProperty="Opacity"  
+                             From="0.2" To="1" Duration="0:0:1"/>
+        </Storyboard>
+    </Window.Resources>
 </Window>

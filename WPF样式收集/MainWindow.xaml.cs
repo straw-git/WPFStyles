@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -21,15 +23,26 @@ namespace WPF样式收集
     /// </summary>
     public partial class MainWindow : Window
     {
+        Storyboard stdStart;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            stdStart = (Storyboard)this.Resources["start"];
+            stdStart.Completed += (a, b) =>
+            {
+                this.root.Clip = null;
+            };
+            this.Loaded += mainWindow_Loaded;
         }
+
 
         private string indexPageName = "Index";//约定的页面名称
 
         private void mainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            stdStart.Begin();
             LoadPageMenus();
         }
 
