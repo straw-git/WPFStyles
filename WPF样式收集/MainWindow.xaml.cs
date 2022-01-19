@@ -102,5 +102,10 @@ namespace WPF样式收集
                 }
             }
         }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

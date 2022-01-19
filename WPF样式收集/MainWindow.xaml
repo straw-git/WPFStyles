@@ -31,17 +31,28 @@
             </GeometryGroup>
         </Border.Clip>
         <!--Grid 600*880-->
-        <Grid x:Name="root">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="180"/>
-                <!--Menu Item 600*180-->
-                <ColumnDefinition/>
-                <!--Page 600*700-->
-            </Grid.ColumnDefinitions>
-            <!-- 导航 自动读取Pages文件夹下的页面 -->
-            <TreeView Grid.Column="0" Margin="0,20,0,0" x:Name="tvPages" Background="Transparent"  PreviewMouseUp="tvPages_PreviewMouseUp"/>
-            <!--Frame内页 规定Pages文件夹中下级文件夹为名称为导航名称 Index.xaml为导航页-->
-            <Frame Grid.Column="1" x:Name="mainFrame" Source="/Pages/Welcome.xaml"  NavigationUIVisibility="Hidden"/>
+        <Grid x:Name="root" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="关闭" x:Name="btnClose" Click="btnClose_Click"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <!--Menu Item 600*180-->
+                    <ColumnDefinition/>
+                    <!--Page 600*700-->
+                </Grid.ColumnDefinitions>
+                <!-- 导航 自动读取Pages文件夹下的页面 -->
+                <TreeView Grid.Column="0" x:Name="tvPages" Background="Transparent"  PreviewMouseUp="tvPages_PreviewMouseUp"/>
+                <!--Frame内页 规定Pages文件夹中下级文件夹为名称为导航名称 Index.xaml为导航页-->
+                <Frame Grid.Column="1" x:Name="mainFrame" Source="/Pages/Welcome.xaml"  NavigationUIVisibility="Hidden"/>
+            </Grid>
         </Grid>
     </Border>
     <Window.RenderTransform>
