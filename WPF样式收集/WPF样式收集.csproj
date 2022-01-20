@@ -88,7 +88,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\聚光灯查看内容\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\聚光灯查看内容\MyImageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\背景动画\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\背景灯光效果\Index.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,7 +134,16 @@
     <Compile Include="Pages\图片变换动画\InterlacedAnimation.cs" />
     <Compile Include="Pages\图片变换动画\RadialAnimation.cs" />
     <Compile Include="Pages\图片变换动画\WaterFallAnimation.cs" />
+    <Compile Include="Pages\聚光灯查看内容\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\聚光灯查看内容\MyImageBox.xaml.cs">
+      <DependentUpon>MyImageBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\背景动画\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\背景灯光效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\雪花效果\Index.xaml.cs">
