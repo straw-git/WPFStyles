@@ -14,6 +14,159 @@
          AllowsTransparency="True" 
         WindowStartupLocation="CenterScreen">
 
+    <Window.Resources>
+        <!--页面开始动画-->
+        <Storyboard x:Key="start">
+            <RectAnimation Storyboard.TargetName="r1" Storyboard.TargetProperty="Rect"  
+                           Duration="0:0:1" To="0,0,880,880"/>
+            <RectAnimation Storyboard.TargetName="r2" Storyboard.TargetProperty="Rect"  
+                           Duration="0:0:1" To="20,20,500,700"/>
+            <RectAnimation Storyboard.TargetName="r3" Storyboard.TargetProperty="Rect"  
+                           Duration="0:0:1" To="85,0,750,600"/>
+            <RectAnimation Storyboard.TargetName="r4" Storyboard.TargetProperty="Rect"  
+                           Duration="0:0:1" To="0,250,700,600"/>
+            <DoubleAnimation Storyboard.TargetName="wb" Storyboard.TargetProperty="Opacity"  
+                             From="0.2" To="1" Duration="0:0:1"/>
+        </Storyboard>
+        <!--数据模板-->
+        <DataTemplate DataType="{x:Type local:LeftMenuInfo}">
+            <WrapPanel VerticalAlignment="Center">
+                <WrapPanel.ToolTip>
+                    <WrapPanel Width="164">
+                        <!--<Image Margin="2,4" MaxHeight="160" MaxWidth="160" Source="{Binding ImagePath}"/>-->
+                        <TextBlock Text="{Binding Name}" Width="160" Margin="2"/>
+                        <!--<TextBlock Margin="2" Text="{Binding Content}"/>-->
+                    </WrapPanel>
+                </WrapPanel.ToolTip>
+                <!--<Image x:Name="pic" Margin="2" Opacity="0" MaxHeight="0" MaxWidth="0" Source="{Binding ImagePath}" />-->
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock x:Name="title" Height="24" Margin="2,0" Text="{Binding Name}"/>
+                    <!--<TextBlock x:Name="path" Opacity="0" Height="0" Margin="2,0" Text="{Binding Content}"/>-->
+                </StackPanel>
+            </WrapPanel>
+            <DataTemplate.Triggers>
+                <Trigger Property="Height" Value="50">
+                    <!--<Setter TargetName="path" Property="Height" Value="24"/>
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation To="1" BeginTime="0:0:0.1" Duration="0:0:0.1" Storyboard.TargetName="pic" Storyboard.TargetProperty="Opacity" />
+                                <DoubleAnimation To="40" BeginTime="0:0:0.1" Duration="0:0:0.1" Storyboard.TargetName="pic" Storyboard.TargetProperty="MaxHeight" />
+                                <DoubleAnimation To="40" BeginTime="0:0:0.1" Duration="0:0:0.1" Storyboard.TargetName="pic" Storyboard.TargetProperty="MaxWidth" />
+                                <DoubleAnimation To="0.4" BeginTime="0:0:0.1" Duration="0:0:0.1" Storyboard.TargetName="path" Storyboard.TargetProperty="Opacity" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation BeginTime="0:0:0.4" Duration="0:0:0.1" Storyboard.TargetName="pic" Storyboard.TargetProperty="Opacity" />
+                                <DoubleAnimation BeginTime="0:0:0.3" Duration="0:0:0.1" Storyboard.TargetName="pic" Storyboard.TargetProperty="MaxHeight" />
+                                <DoubleAnimation BeginTime="0:0:0.3" Duration="0:0:0.1" Storyboard.TargetName="pic" Storyboard.TargetProperty="MaxWidth" />
+                                <DoubleAnimation BeginTime="0:0:0.4" Duration="0:0:0.1" Storyboard.TargetName="path" Storyboard.TargetProperty="Opacity" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>-->
+                </Trigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+        <!--ListBox样式-->
+        <Style TargetType="ListBox">
+            <Setter Property="BorderBrush" Value="#BDD4F1"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="#F8F7F5"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <!--ListBoxItem样式-->
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Foreground" Value="#B5BABF"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Name="back" BorderBrush="#F8F7F5" BorderThickness="0,1,0,1">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientBrush.GradientStops>
+                                        <GradientStopCollection>
+                                            <GradientStop Color="#F8F7F5" Offset="0.0"/>
+                                            <GradientStop Color="#F8F7F5" Offset="0.5"/>
+                                            <GradientStop Color="#F8F7F5" Offset="0.51"/>
+                                            <GradientStop Color="#F8F7F5" Offset="1"/>
+                                        </GradientStopCollection>
+                                    </GradientBrush.GradientStops>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <ContentPresenter x:Name="content" Height="28" Margin="2" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation To="50" Duration="0:0:0.3" Storyboard.TargetName="content" Storyboard.TargetProperty="Height"/>
+                                            <DoubleAnimation To="50" Duration="0:0:0.3" Storyboard.TargetProperty="Height"/>
+                                            <ColorAnimation To="#F3C37C" Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="#952B00" Duration="0:0:0.2" Storyboard.TargetProperty="(ListBoxItem.Foreground).(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="#FFF" Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)" />
+                                            <ColorAnimation To="#FFEF99" Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)" />
+                                            <ColorAnimation To="#FFE13F" Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[2].(GradientStop.Color)" />
+                                            <ColorAnimation To="#FFF3B0" Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[3].(GradientStop.Color)" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation BeginTime="0:0:0.4"  Duration="0:0:0.2" Storyboard.TargetName="content" Storyboard.TargetProperty="Height"/>
+                                            <DoubleAnimation BeginTime="0:0:0.4" Duration="0:0:0.2" Storyboard.TargetProperty="Height"/>
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" />
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetProperty="(ListBoxItem.Foreground).(SolidColorBrush.Color)" />
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)" />
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)" />
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[2].(GradientStop.Color)" />
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[3].(GradientStop.Color)" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation To="#D8E6F5" Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="#617A98" Duration="0:0:0.2" Storyboard.TargetProperty="(ListBoxItem.Foreground).(SolidColorBrush.Color)" />
+                                            <ColorAnimation To="#F6F9FD" Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)" />
+                                            <ColorAnimation To="#E0EBF7" Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)" />
+                                            <ColorAnimation To="#D7E5F6" Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[2].(GradientStop.Color)" />
+                                            <ColorAnimation To="#F6F9FD" Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[3].(GradientStop.Color)" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" />
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetProperty="(ListBoxItem.Foreground).(SolidColorBrush.Color)" />
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)" />
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)" />
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[2].(GradientStop.Color)" />
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="back" Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[3].(GradientStop.Color)" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Border x:Name="wb" Background="White" Margin="5" BorderThickness="1" BorderBrush="Black">
         <!--Border颜色渐变 未使用-->
         <!--<Border.Background>
@@ -36,11 +189,7 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="关闭" x:Name="btnClose" Click="btnClose_Click"/>
-                </StackPanel>
-            </Grid>
+
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="180"/>
@@ -49,9 +198,14 @@
                     <!--Page 600*700-->
                 </Grid.ColumnDefinitions>
                 <!-- 导航 自动读取Pages文件夹下的页面 -->
-                <TreeView Grid.Column="0" x:Name="tvPages" Background="Transparent"  PreviewMouseUp="tvPages_PreviewMouseUp"/>
+                <ListBox Grid.Column="0"  Name="lMenus" SelectionChanged="lMenus_SelectionChanged" />
                 <!--Frame内页 规定Pages文件夹中下级文件夹为名称为导航名称 Index.xaml为导航页-->
                 <Frame Grid.Column="1" x:Name="mainFrame" Source="/Pages/Welcome.xaml"  NavigationUIVisibility="Hidden"/>
+            </Grid>
+            <Grid Grid.RowSpan="2">
+                <StackPanel Orientation="Horizontal" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <Image Source="/Resources/close.png" MouseDown="btnClose_Click"/>
+                </StackPanel>
             </Grid>
         </Grid>
     </Border>
@@ -61,18 +215,4 @@
             <ScaleTransform x:Name="sct" ScaleX="1" ScaleY="1"/>
         </TransformGroup>
     </Window.RenderTransform>
-    <Window.Resources>
-        <Storyboard x:Key="start">
-            <RectAnimation Storyboard.TargetName="r1" Storyboard.TargetProperty="Rect"  
-                           Duration="0:0:1" To="0,0,880,880"/>
-            <RectAnimation Storyboard.TargetName="r2" Storyboard.TargetProperty="Rect"  
-                           Duration="0:0:1" To="20,20,500,700"/>
-            <RectAnimation Storyboard.TargetName="r3" Storyboard.TargetProperty="Rect"  
-                           Duration="0:0:1" To="85,0,750,600"/>
-            <RectAnimation Storyboard.TargetName="r4" Storyboard.TargetProperty="Rect"  
-                           Duration="0:0:1" To="0,250,700,600"/>
-            <DoubleAnimation Storyboard.TargetName="wb" Storyboard.TargetProperty="Opacity"  
-                             From="0.2" To="1" Duration="0:0:1"/>
-        </Storyboard>
-    </Window.Resources>
 </Window>

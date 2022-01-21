@@ -1,0 +1,71 @@
+﻿<Page x:Class="WPF样式收集.Pages.星空背景.Index"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF样式收集.Pages.星空背景"
+      Height="600" Width="700"  Loaded="Page_Loaded" Unloaded="Page_Unloaded"
+      Title="Index">
+
+    <Page.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="2"></Setter>
+        </Style>
+        <Style TargetType="{x:Type StackPanel}">
+            <Setter Property="Margin" Value="2"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="50"></Setter>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid Name="grid_animationLayout">
+            <Grid.Background>
+                <RadialGradientBrush GradientOrigin="0.5,0" Center="0.5,0.3" RadiusX="0.7">
+                    <GradientStop Color="#FF04040E" Offset="0"/>
+                    <GradientStop Color="#FF24315D" Offset="1"/>
+                </RadialGradientBrush>
+            </Grid.Background>
+            <Grid Name="grid_lineContainer"/>
+            <Canvas Name="cvs_starContainer"/>
+        </Grid>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="星星个数:"></TextBlock>
+                <TextBox x:Name="tbx_starCount"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="最小尺寸:"></TextBlock>
+                <TextBox Name="tbx_starSizeMin"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="最大尺寸:"></TextBlock>
+                <TextBox Name="tbx_starSizeMax"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="最小速度:"></TextBlock>
+                <TextBox Name="tbx_starVMin"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="最大速度:"></TextBlock>
+                <TextBox Name="tbx_starVMax"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="最小转速:"></TextBlock>
+                <TextBox Name="tbx_starRVMin"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="最大转速:"></TextBlock>
+                <TextBox Name="tbx_starRVMax"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="连线倍率:"></TextBlock>
+                <TextBox Name="tbx_lineRate"></TextBox>
+            </StackPanel>
+            <Button Name="btn_render" Content="生成" Click="btn_render_Click" RenderTransformOrigin="0.5,0.5"/>
+        </StackPanel>
+    </Grid>
+</Page>

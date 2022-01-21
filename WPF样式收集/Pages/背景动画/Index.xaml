@@ -20,7 +20,7 @@
     </Page.Triggers>
     <Grid x:Name="mainPanel">
         <Grid.Background>
-            <DrawingBrush TileMode="Tile" Viewport="0,0,400,400" ViewportUnits="Absolute">
+            <DrawingBrush TileMode="Tile" Viewport="0,0,150,150" ViewportUnits="Absolute">
                 <DrawingBrush.Drawing>
                     <DrawingGroup>
                         <DrawingGroup.Children>

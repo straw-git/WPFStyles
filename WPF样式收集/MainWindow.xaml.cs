@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -39,10 +40,13 @@ namespace WPF样式收集
 
 
         private string indexPageName = "Index";//约定的页面名称
+        ObservableCollection<LeftMenuInfo> LeftMenus = new ObservableCollection<LeftMenuInfo>();//左侧导航数据源
 
         private void mainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             stdStart.Begin();
+
+            lMenus.ItemsSource = LeftMenus;
             LoadPageMenus();
         }
 
@@ -51,6 +55,7 @@ namespace WPF样式收集
         /// </summary>
         private void LoadPageMenus()
         {
+            LeftMenus.Clear();
             Assembly currAssembly = Assembly.GetExecutingAssembly();//获取当前程序集
             string pagesNamespace = $"{currAssembly.GetName().Name}.Pages";
             //查找所有页面的命名空间
@@ -77,11 +82,7 @@ namespace WPF样式收集
                 //如果文件名以_开头 去掉_
                 if (folderName.StartsWith("_")) folderName = folderName.Substring(1);
 
-                //加入到Treeview
-                TreeViewItem item = new TreeViewItem();
-                item.Header = folderName;//Content
-                item.Tag = $"/Pages/{folderName}/{indexPageName}.xaml" ;
-                tvPages.Items.Add(item);
+                LeftMenus.Add(new LeftMenuInfo() { Name = folderName, Url = $"/Pages/{folderName}/{indexPageName}.xaml" });
             }
         }
 
@@ -90,20 +91,20 @@ namespace WPF样式收集
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void tvPages_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        private void lMenus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (tvPages.SelectedItem != null)//选中导航验证
+            if (lMenus.SelectedItem != null)//选中导航验证
             {
-                TreeViewItem targetItem = tvPages.SelectedItem as TreeViewItem;//选中的导航
-                if (targetItem.Tag != null && !string.IsNullOrEmpty(targetItem.Tag.ToString()))//选中导航验证
+                LeftMenuInfo targetItem = lMenus.SelectedItem as LeftMenuInfo;//选中的导航
+                if (!string.IsNullOrEmpty(targetItem.Url))//选中导航验证
                 {
-                    string url = targetItem.Tag.ToString();//获取URL
+                    string url = targetItem.Url;//获取URL
                     mainFrame.Source = new Uri(url, UriKind.RelativeOrAbsolute);//转至URL
                 }
             }
         }
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
+        private void btnClose_Click(object sender, MouseButtonEventArgs e)
         {
             Application.Current.Shutdown();
         }

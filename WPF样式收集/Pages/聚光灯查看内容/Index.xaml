@@ -7,13 +7,13 @@
      Height="600" Width="700" 
       Title="Index">
     <Grid>
-        <UniformGrid Rows="2" Columns="3" Margin="0">
-            <local:MyImageBox Width="200" Height="250" DisplayImage="/Resources/images1.jpg" DisplayText="区域1" FontSize="28"></local:MyImageBox>
-            <local:MyImageBox Width="200" Height="250" DisplayImage="/Resources/images1.jpg" DisplayText="区域2" FontSize="28"></local:MyImageBox>
-            <local:MyImageBox Width="200" Height="250" DisplayImage="/Resources/images1.jpg" DisplayText="区域3" FontSize="28"></local:MyImageBox>
-            <local:MyImageBox Width="200" Height="250" DisplayImage="/Resources/images1.jpg" DisplayText="区域4" FontSize="28"></local:MyImageBox>
-            <local:MyImageBox Width="200" Height="250" DisplayImage="/Resources/images1.jpg" DisplayText="区域5" FontSize="28"></local:MyImageBox>
-            <local:MyImageBox Width="200" Height="250" DisplayImage="/Resources/images1.jpg" DisplayText="区域6" FontSize="28"></local:MyImageBox>
+        <UniformGrid Rows="2" Columns="3">
+            <local:MyImageBox Margin="5" DisplayImage="/Resources/images1.jpg" DisplayText="区域1" FontSize="28"></local:MyImageBox>
+            <local:MyImageBox Margin="5"  DisplayImage="/Resources/images1.jpg" DisplayText="区域2" FontSize="28"></local:MyImageBox>
+            <local:MyImageBox Margin="5"  DisplayImage="/Resources/images1.jpg" DisplayText="区域3" FontSize="28"></local:MyImageBox>
+            <local:MyImageBox Margin="5"  DisplayImage="/Resources/images1.jpg" DisplayText="区域4" FontSize="28"></local:MyImageBox>
+            <local:MyImageBox Margin="5"  DisplayImage="/Resources/images1.jpg" DisplayText="区域5" FontSize="28"></local:MyImageBox>
+            <local:MyImageBox Margin="5"  DisplayImage="/Resources/images1.jpg" DisplayText="区域6" FontSize="28"></local:MyImageBox>
         </UniformGrid>
     </Grid>
 </Page>
