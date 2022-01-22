@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="WPF样式收集.Pages._3D切图式过渡效果.MyRollControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF样式收集.Pages._3D切图式过渡效果"
+             Height="600" Width="700" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="imgLeft" Grid.Column="0" Source="/Resources/left.png" Width="35" MouseDown="ImgLeft_MouseDown" Cursor="Hand"/>
+        <Image x:Name="imgRight" Grid.Column="2" Source="/Resources/right.png"  Width="35" MouseDown="ImgRight_MouseDown" Cursor="Hand"/>
+        <local:My3DImageControl x:Name="Cube3D" Grid.Column="1"></local:My3DImageControl>
+    </Grid>
+</UserControl>

@@ -1,0 +1,42 @@
+﻿<Page x:Class="WPF样式收集.Pages.擦除效果.Index"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF样式收集.Pages.擦除效果"
+      Height="600" Width="700"  Unloaded="Page_Unloaded"
+      Title="Index">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/images1.jpg" Stretch="Uniform"/>
+        </Grid.Background>
+        <Grid x:Name="gridShadow" Background="#E54E4E4E"></Grid>
+        <Path Fill="Transparent">
+            <Path.Data>
+                <EllipseGeometry x:Name="myEllipseGeometry" RadiusX="50" RadiusY="50">
+                    <EllipseGeometry.Transform>
+                        <TranslateTransform x:Name="PathTranslateTransform" X="400" Y="28" />
+                    </EllipseGeometry.Transform>
+                </EllipseGeometry>
+            </Path.Data>
+            <Path.Triggers>
+                <EventTrigger RoutedEvent="Path.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingPath Storyboard.TargetName="PathTranslateTransform" Storyboard.TargetProperty="X" Source="X" FillBehavior="HoldEnd" Duration="0:0:5">
+                                <DoubleAnimationUsingPath.PathGeometry>
+                                    <PathGeometry Figures="M400,28 L240,84 520,110 250,176 500,220 230,280 460,320 260,360 400,400"/>
+                                </DoubleAnimationUsingPath.PathGeometry>
+                            </DoubleAnimationUsingPath>
+                            <DoubleAnimationUsingPath Storyboard.TargetName="PathTranslateTransform" Storyboard.TargetProperty="Y" Source="Y" FillBehavior="HoldEnd" Duration="0:0:5">
+                                <DoubleAnimationUsingPath.PathGeometry>
+                                    <PathGeometry Figures="M400,28 L240,84 520,110 250,176 500,220 230,280 460,320 260,360 400,400" />
+                                </DoubleAnimationUsingPath.PathGeometry>
+                            </DoubleAnimationUsingPath>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Path.Triggers>
+        </Path>
+    </Grid>
+</Page>

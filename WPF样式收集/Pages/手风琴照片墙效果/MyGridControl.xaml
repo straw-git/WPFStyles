@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="WPF样式收集.Pages.手风琴照片墙效果.MyGridControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF样式收集.Pages.手风琴照片墙效果">
+    <UserControl.Resources>
+        <local:GridLengthAnimation x:Key="cellTopAnimation" Duration="0:0:0.5" FillBehavior="HoldEnd" Storyboard.TargetName="cellTop" Storyboard.TargetProperty="Height"></local:GridLengthAnimation>
+        <local:GridLengthAnimation x:Key="cellBotAnimation" Duration="0:0:0.5" FillBehavior="HoldEnd" Storyboard.TargetName="cellBot" Storyboard.TargetProperty="Height"></local:GridLengthAnimation>
+        <local:GridLengthAnimation x:Key="cellLeftAnimation" Duration="0:0:0.5" FillBehavior="HoldEnd" Storyboard.TargetName="cellLeft" Storyboard.TargetProperty="Width"></local:GridLengthAnimation>
+        <local:GridLengthAnimation x:Key="cellRightAnimation" Duration="0:0:0.5" FillBehavior="HoldEnd" Storyboard.TargetName="cellRight" Storyboard.TargetProperty="Width"></local:GridLengthAnimation>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutGrid" MouseLeave="LayoutGrid_MouseLeave">
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="cellTop" Height="1*"></RowDefinition>
+            <RowDefinition x:Name="cellBot" Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="cellLeft" Width="1*"></ColumnDefinition>
+            <ColumnDefinition x:Name="cellRight" Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="Grid00" Grid.Row="0" Grid.Column="0" Source="/Resources/images1.jpg" Stretch="None" MouseEnter="Grid00_MouseEnter"></Image>
+        <Image x:Name="Grid01" Grid.Row="0" Grid.Column="1" Source="/Resources/images1.jpg" Stretch="None" MouseEnter="Grid01_MouseEnter"></Image>
+        <Image x:Name="Grid10" Grid.Row="1" Grid.Column="0" Source="/Resources/images1.jpg" Stretch="None" MouseEnter="Grid10_MouseEnter"></Image>
+        <Image x:Name="Grid11" Grid.Row="1" Grid.Column="1" Source="/Resources/images1.jpg" Stretch="None" MouseEnter="Grid11_MouseEnter"></Image>
+    </Grid>
+</UserControl>

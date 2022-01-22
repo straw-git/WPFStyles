@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -69,6 +71,30 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\3D切图式过渡效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\3D切图式过渡效果\My3DCubeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\3D切图式过渡效果\My3DImageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\3D切图式过渡效果\MyRollControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\3D字体开门效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\3D字体开门效果\MyImageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\3D立方体波浪墙效果\Index.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -81,7 +107,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Loading\EllipsePendulum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Loading\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Loading\LoadingCircle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Loading\LoadingPendulum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Welcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\图像倾斜视差效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\图像倾斜视差效果\MyImageControl2D.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -89,7 +139,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\悬停视差效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\手风琴照片墙效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\手风琴照片墙效果\MyGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\擦除效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\星空背景\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\水面波纹特效\Index.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,12 +179,38 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\菜单折叠效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\菜单折叠效果\RoundMenuControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\雪花效果\Index.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\3D切图式过渡效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\3D切图式过渡效果\My3DCubeControl.xaml.cs">
+      <DependentUpon>My3DCubeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\3D切图式过渡效果\My3DImageControl.xaml.cs">
+      <DependentUpon>My3DImageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\3D切图式过渡效果\MyRollControl.xaml.cs">
+      <DependentUpon>MyRollControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\3D字体开门效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\3D字体开门效果\MyImageControl.xaml.cs">
+      <DependentUpon>MyImageControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\3D立方体波浪墙效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
@@ -128,8 +224,27 @@
     <Compile Include="Pages\3D翻转\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Loading\EllipseCircleAnimation.cs" />
+    <Compile Include="Pages\Loading\EllipsePendulum.xaml.cs">
+      <DependentUpon>EllipsePendulum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Loading\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Loading\LoadingCircle.xaml.cs">
+      <DependentUpon>LoadingCircle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Loading\LoadingPendulum.xaml.cs">
+      <DependentUpon>LoadingPendulum.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\图像倾斜视差效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\图像倾斜视差效果\MyImageControl2D.xaml.cs">
+      <DependentUpon>MyImageControl2D.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\图片变换动画\BlockAnimation.cs" />
     <Compile Include="Pages\图片变换动画\CircleAnimation.cs" />
@@ -139,10 +254,27 @@
     <Compile Include="Pages\图片变换动画\InterlacedAnimation.cs" />
     <Compile Include="Pages\图片变换动画\RadialAnimation.cs" />
     <Compile Include="Pages\图片变换动画\WaterFallAnimation.cs" />
+    <Compile Include="Pages\悬停视差效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\手风琴照片墙效果\GridLengthAnimation.cs" />
+    <Compile Include="Pages\手风琴照片墙效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\手风琴照片墙效果\MyGridControl.xaml.cs">
+      <DependentUpon>MyGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\擦除效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\星空背景\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\星空背景\StarInfo.cs" />
+    <Compile Include="Pages\水面波纹特效\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\水面波纹特效\WaterEffect.cs" />
     <Compile Include="Pages\聚光灯查看内容\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
@@ -154,6 +286,13 @@
     </Compile>
     <Compile Include="Pages\背景灯光效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\菜单折叠效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\菜单折叠效果\MyButton.cs" />
+    <Compile Include="Pages\菜单折叠效果\RoundMenuControl.xaml.cs">
+      <DependentUpon>RoundMenuControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\雪花效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
@@ -176,6 +315,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Pages\水面波纹特效\water.ps" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -190,5 +330,18 @@
   <ItemGroup>
     <Resource Include="Resources\close.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pages\水面波纹特效\Shader.fx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

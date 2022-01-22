@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="WPF样式收集.Pages._3D字体开门效果.MyImageControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" x:Name="UC"
+             xmlns:local="clr-namespace:WPF样式收集.Pages._3D字体开门效果">
+    <Grid MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+        <Viewport3D >
+            <Viewport3D.Camera>
+                <PerspectiveCamera Position="0,0,30" LookDirection="0,0,-1" UpDirection="0,1,0" NearPlaneDistance="0.2" FarPlaneDistance="200"></PerspectiveCamera>
+            </Viewport3D.Camera>
+            <Viewport3D.Children>
+                <ModelVisual3D>
+                    <ModelVisual3D.Content>
+                        <DirectionalLight Color="White"/>
+                    </ModelVisual3D.Content>
+                </ModelVisual3D>
+                <ContainerUIElement3D>
+                    <Viewport2DVisual3D>
+                        <Viewport2DVisual3D.Geometry>
+                            <MeshGeometry3D Positions="-1 -1 0  1 -1 0  -1 1 0  1 1 0" TextureCoordinates="0 1  1 1  0 0  1 0" TriangleIndices="0 1 2  1 3 2" />
+                        </Viewport2DVisual3D.Geometry>
+                        <Viewport2DVisual3D.Transform>
+                            <Transform3DGroup>
+                                <Transform3DGroup.Children>
+                                    <ScaleTransform3D ScaleX="10" ScaleY="10" ScaleZ="10" />
+                                </Transform3DGroup.Children>
+                            </Transform3DGroup>
+                        </Viewport2DVisual3D.Transform>
+                        <Viewport2DVisual3D.Material>
+                            <DiffuseMaterial Viewport2DVisual3D.IsVisualHostMaterial="True"/>
+                        </Viewport2DVisual3D.Material>
+                        <Viewport2DVisual3D.Visual>
+                            <TextBlock Text="{Binding ElementName=UC,Path=Text}" Foreground="Black" Opacity="0.5" FontWeight="ExtraBold"></TextBlock>
+                        </Viewport2DVisual3D.Visual>
+                    </Viewport2DVisual3D>
+                </ContainerUIElement3D>
+            </Viewport3D.Children>
+        </Viewport3D>
+        <Viewport3D>
+            <Viewport3D.Camera>
+                <PerspectiveCamera Position="0,0,30" LookDirection="0,0,-1" UpDirection="0,1,0" NearPlaneDistance="0.2" FarPlaneDistance="200"></PerspectiveCamera>
+            </Viewport3D.Camera>
+            <Viewport3D.Children>
+                <ModelVisual3D>
+                    <ModelVisual3D.Content>
+                        <DirectionalLight Color="White"/>
+                    </ModelVisual3D.Content>
+                </ModelVisual3D>
+                <ContainerUIElement3D>
+                    <Viewport2DVisual3D>
+                        <Viewport2DVisual3D.Geometry>
+                            <MeshGeometry3D Positions="-1 -1 0  1 -1 0  -1 1 0  1 1 0" TextureCoordinates="0 1  1 1  0 0  1 0" TriangleIndices="0 1 2  1 3 2" />
+                        </Viewport2DVisual3D.Geometry>
+                        <Viewport2DVisual3D.Transform>
+                            <Transform3DGroup>
+                                <Transform3DGroup.Children>
+                                    <ScaleTransform3D ScaleX="10" ScaleY="10" ScaleZ="10" />
+                                    <RotateTransform3D x:Name="MyRotateTransform3D" CenterX="0" CenterY="0" CenterZ="0">
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D x:Name="MyAxisAngleRotation3D" Angle="0" Axis="0 0 0"/>
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                </Transform3DGroup.Children>
+                            </Transform3DGroup>
+                        </Viewport2DVisual3D.Transform>
+                        <Viewport2DVisual3D.Material>
+                            <DiffuseMaterial Viewport2DVisual3D.IsVisualHostMaterial="True"/>
+                        </Viewport2DVisual3D.Material>
+                        <Viewport2DVisual3D.Visual>
+                            <TextBlock Text="{Binding ElementName=UC,Path=Text}" Foreground="{Binding ElementName=UC,Path=TextColor}" FontWeight="ExtraBold">
+                                <TextBlock.Effect>
+                                    <DropShadowEffect BlurRadius="0" Direction="-90" Color="Gray" Opacity="0.5" ShadowDepth="0.25"></DropShadowEffect>
+                                </TextBlock.Effect>
+                            </TextBlock>
+                        </Viewport2DVisual3D.Visual>
+                    </Viewport2DVisual3D>
+                </ContainerUIElement3D>
+            </Viewport3D.Children>
+        </Viewport3D>
+    </Grid>
+</UserControl>

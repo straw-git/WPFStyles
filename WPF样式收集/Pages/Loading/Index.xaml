@@ -1,0 +1,21 @@
+﻿<Page x:Class="WPF样式收集.Pages.Loading.Index"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF样式收集.Pages.Loading"
+      Height="600" Width="700" 
+      Title="Index">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <local:LoadingCircle/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <local:LoadingPendulum/>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="WPF样式收集.Pages.Loading.EllipsePendulum"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             x:Name="myUC">
+    <StackPanel Orientation="Vertical">
+        <Grid>
+            <Ellipse Width="50" Height="50" Fill="{Binding FillColor,ElementName=myUC}"></Ellipse>
+            <TextBlock Text="{Binding ShowText,ElementName=myUC}" Foreground="WhiteSmoke" FontSize="32" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        </Grid>
+        <Ellipse Width="50" Height="25" Fill="#322B27" Margin="0,30,0,0"></Ellipse>
+    </StackPanel>
+</UserControl>
