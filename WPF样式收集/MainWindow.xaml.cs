@@ -16,6 +16,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace WPF样式收集
 {
@@ -48,6 +49,14 @@ namespace WPF样式收集
 
             lMenus.ItemsSource = LeftMenus;
             LoadPageMenus();
+
+            this.MouseDown += (x, y) =>
+            {
+                if (y.LeftButton == MouseButtonState.Pressed)
+                {
+                    this.DragMove();
+                }
+            };
         }
 
         /// <summary>
@@ -106,7 +115,11 @@ namespace WPF样式收集
 
         private void btnClose_Click(object sender, MouseButtonEventArgs e)
         {
-            Application.Current.Shutdown();
+            if (MessageBox.Show("是否确认退出？", "提示", MessageBoxButton.YesNo) == MessageBoxResult.Yes) 
+            {
+                Application.Current.Shutdown();
+            } 
         }
+
     }
 }
