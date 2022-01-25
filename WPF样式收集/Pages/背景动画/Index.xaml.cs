@@ -24,5 +24,25 @@ namespace WPF样式收集.Pages.背景动画
         {
             InitializeComponent();
         }
+
+        private void btnBG1_Click(object sender, RoutedEventArgs e)
+        {
+            bgFrame.Source = new Uri("/Pages/背景动画/BG1.xaml", UriKind.RelativeOrAbsolute);
+        }
+
+        private void btnBG2_Click(object sender, RoutedEventArgs e)
+        {
+            bgFrame.Source = new Uri("/Pages/背景动画/BG2.xaml", UriKind.RelativeOrAbsolute);
+        }
+
+        private void btnBG3_Click(object sender, RoutedEventArgs e)
+        {
+            bgFrame.Source = new Uri("/Pages/背景动画/BG3.xaml", UriKind.RelativeOrAbsolute);
+        }
+
+        private void btnBG4_Click(object sender, RoutedEventArgs e)
+        {
+            bgFrame.Source = new Uri("/Pages/背景动画/BG4.xaml", UriKind.RelativeOrAbsolute);
+        }
     }
 }

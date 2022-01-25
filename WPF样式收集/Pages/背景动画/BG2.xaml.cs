@@ -13,17 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF样式收集.Pages.背景灯光效果
+namespace WPF样式收集.Pages.背景动画
 {
     /// <summary>
-    /// Index.xaml 的交互逻辑
+    /// BG2.xaml 的交互逻辑
     /// </summary>
-    public partial class Index : Page
+    public partial class BG2 : Page
     {
         private Point lastMousePosition = new Point(0, 0);//鼠标位置
         private int triangleLength = 100;//三角形边长  边长越大 系统处理越多 就会越卡
 
-        public Index()
+        public BG2()
         {
             InitializeComponent();
 
@@ -152,5 +152,6 @@ namespace WPF样式收集.Pages.背景灯光效果
             CompositionTarget.Rendering -= UpdateTriangle;
             this.container.PreviewMouseMove -= UpdateLastMousePosition;
         }
+
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Shapes;
 
-namespace WPF样式收集.Pages.星空背景
+namespace WPF样式收集.Pages.背景动画
 {
     /// <summary>
     /// 星星

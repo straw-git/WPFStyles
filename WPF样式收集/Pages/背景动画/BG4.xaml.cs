@@ -14,14 +14,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF样式收集.Pages.星空背景
+namespace WPF样式收集.Pages.背景动画
 {
     /// <summary>
     /// Index.xaml 的交互逻辑
     /// </summary>
-    public partial class Index : Page
+    public partial class BG4 : Page
     {
-        public Index()
+        public BG4()
         {
             InitializeComponent();
         }

@@ -155,7 +155,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\星空背景\Index.xaml">
+    <Page Include="Pages\背景动画\BG4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,11 +171,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\背景动画\Index.xaml">
+    <Page Include="Pages\背景动画\BG1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\背景灯光效果\Index.xaml">
+    <Page Include="Pages\背景动画\BG2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\背景动画\BG3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\背景动画\Index.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -267,10 +275,10 @@
     <Compile Include="Pages\擦除效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\星空背景\Index.xaml.cs">
-      <DependentUpon>Index.xaml</DependentUpon>
+    <Compile Include="Pages\背景动画\BG4.xaml.cs">
+      <DependentUpon>BG4.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\星空背景\StarInfo.cs" />
+    <Compile Include="Pages\背景动画\StarInfo.cs" />
     <Compile Include="Pages\水面波纹特效\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
@@ -281,12 +289,20 @@
     <Compile Include="Pages\聚光灯查看内容\MyImageBox.xaml.cs">
       <DependentUpon>MyImageBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\背景动画\BG1.xaml.cs">
+      <DependentUpon>BG1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\背景动画\BG2.xaml.cs">
+      <DependentUpon>BG2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\背景动画\BG3.xaml.cs">
+      <DependentUpon>BG3.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\背景动画\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\背景灯光效果\Index.xaml.cs">
-      <DependentUpon>Index.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Pages\背景动画\Triangle.cs" />
+    <Compile Include="Pages\背景动画\TriangleSystem.cs" />
     <Compile Include="Pages\菜单折叠效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
