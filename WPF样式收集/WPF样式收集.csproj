@@ -87,6 +87,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\3D发光立方体效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\3D字体开门效果\Index.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -212,6 +216,9 @@
     </Compile>
     <Compile Include="Pages\3D切图式过渡效果\MyRollControl.xaml.cs">
       <DependentUpon>MyRollControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\3D发光立方体效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\3D字体开门效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>

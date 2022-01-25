@@ -167,7 +167,7 @@
         </Style>
     </Window.Resources>
 
-    <Border x:Name="wb" Background="White" Margin="5" BorderThickness="1" BorderBrush="Black" >
+    <Border x:Name="wb" Background="White" Margin="5" BorderThickness="1" BorderBrush="Black">
         <!--Border颜色渐变 未使用-->
         <!--<Border.Background>
             <LinearGradientBrush EndPoint="0.8,1" StartPoint="0.33,0">
@@ -183,9 +183,9 @@
                 <RectangleGeometry x:Name="r4" Rect="360,0,100,880"/>
             </GeometryGroup>
         </Border.Clip>
-        <!--Grid 600*880-->
+        <!--Grid 800*880-->
         <Grid x:Name="root" >
-            <Grid Grid.Row="1">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="180"/>
                     <!--Menu Item 600*180-->
@@ -197,11 +197,14 @@
                 <!--Frame内页 规定Pages文件夹中下级文件夹为名称为导航名称 Index.xaml为导航页-->
                 <Frame Grid.Column="1" x:Name="mainFrame" Source="/Pages/Welcome.xaml"  NavigationUIVisibility="Hidden"/>
             </Grid>
-            <Grid Grid.RowSpan="2">
-                <StackPanel Orientation="Horizontal" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Grid>
+                <StackPanel Orientation="Horizontal" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Background="White">
                     <Image Source="/Resources/close.png" ToolTip="退出" MouseDown="btnClose_Click"/>
                 </StackPanel>
             </Grid>
+            <Border BorderThickness="1" BorderBrush="Black" VerticalAlignment="Bottom" Background="White" Margin="180,0,0,0" Width="200" Height="50" HorizontalAlignment="Center" MouseDown="bHeader_MouseDown">
+                <Label Content="拖动我来移动窗体" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Border>
         </Grid>
     </Border>
     <Window.RenderTransform>

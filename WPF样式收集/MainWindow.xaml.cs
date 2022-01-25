@@ -50,13 +50,6 @@ namespace WPF样式收集
             lMenus.ItemsSource = LeftMenus;
             LoadPageMenus();
 
-            this.MouseDown += (x, y) =>
-            {
-                if (y.LeftButton == MouseButtonState.Pressed)
-                {
-                    this.DragMove();
-                }
-            };
         }
 
         /// <summary>
@@ -121,5 +114,12 @@ namespace WPF样式收集
             } 
         }
 
+        private void bHeader_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
     }
 }

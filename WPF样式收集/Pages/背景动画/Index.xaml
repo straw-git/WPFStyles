@@ -8,7 +8,7 @@
       Title="Index">
     <Grid>
         <Frame x:Name="bgFrame" Source="/Pages/Welcome.xaml"  NavigationUIVisibility="Hidden"/>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0">
             <Button Margin="20,0,0,0" Content="背景动画1" x:Name="btnBG1" Click="btnBG1_Click" Height="30" Width="80" />
             <Button Margin="20,0,0,0" Content="背景灯光效果" x:Name="btnBG2" Click="btnBG2_Click" Height="30" Width="100" />
             <Button Margin="20,0,0,0" Content="平面三角形3D运动效果" x:Name="btnBG3" Click="btnBG3_Click" Height="30" Width="140" />
