@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="WPF样式收集.Pages.Loading.LoadingLeft2Right"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Height="25"
+             xmlns:local="clr-namespace:WPF样式收集.Pages.Loading" Loaded="UserControl_Loaded">
+    <Canvas x:Name="mainCanvas">
+        <StackPanel Name="loadingBar" Orientation="Vertical">
+            <Image Source="/Resources/right.png" HorizontalAlignment="Right" Width="40" Height="40" Stretch="Fill"></Image>
+            <Rectangle Width="{Binding ElementName=mainCanvas,Path=ActualWidth}" Height="5">
+                <Rectangle.Fill>
+                    <RadialGradientBrush RadiusX="1" RadiusY="1" GradientOrigin="0.9,0.5">
+                        <GradientStop Color="Red" Offset="0"></GradientStop>
+                        <GradientStop Color="Orange" Offset="0.2"></GradientStop>
+                        <GradientStop Color="Transparent" Offset="0.5"></GradientStop>
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </StackPanel>
+    </Canvas>
+</UserControl>

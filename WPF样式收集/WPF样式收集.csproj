@@ -123,6 +123,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Loading\LoadingLeft2Right.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Loading\LoadingPendulum.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -248,6 +252,9 @@
     </Compile>
     <Compile Include="Pages\Loading\LoadingCircle.xaml.cs">
       <DependentUpon>LoadingCircle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Loading\LoadingLeft2Right.xaml.cs">
+      <DependentUpon>LoadingLeft2Right.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Loading\LoadingPendulum.xaml.cs">
       <DependentUpon>LoadingPendulum.xaml</DependentUpon>
