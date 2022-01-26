@@ -31,6 +31,8 @@ namespace WPF样式收集
         {
             InitializeComponent();
 
+            Global.MainWindow = this;
+
             stdStart = (Storyboard)this.Resources["start"];
             stdStart.Completed += (a, b) =>
             {
@@ -100,26 +102,55 @@ namespace WPF样式收集
                 LeftMenuInfo targetItem = lMenus.SelectedItem as LeftMenuInfo;//选中的导航
                 if (!string.IsNullOrEmpty(targetItem.Url))//选中导航验证
                 {
+                    SetBugs();
                     string url = targetItem.Url;//获取URL
-                    mainFrame.Source = new Uri(url, UriKind.RelativeOrAbsolute);//转至URL
+                    mainFrame.Source = new Uri(url, UriKind.RelativeOrAbsolute);
                 }
             }
         }
 
         private void btnClose_Click(object sender, MouseButtonEventArgs e)
         {
-            if (MessageBox.Show("是否确认退出？", "提示", MessageBoxButton.YesNo) == MessageBoxResult.Yes) 
+            if (MessageBox.Show("是否确认退出？", "提示", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 Application.Current.Shutdown();
-            } 
+            }
         }
 
-        private void bHeader_MouseDown(object sender, MouseButtonEventArgs e)
+        private void bMove_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 this.DragMove();
             }
+        }
+
+        /// <summary>
+        /// 设置Bug
+        /// </summary>
+        /// <param name="bugStr"></param>
+        public void SetBugs(string bugStr = "")
+        {
+            #region 显示 隐藏
+
+            if (string.IsNullOrEmpty(bugStr))
+            {
+                spBugs.Children.Clear();
+                lblCurrPageBugs.Visibility = Visibility.Collapsed;
+                spBugs.Visibility = Visibility.Collapsed;
+                return;
+            }
+            else
+            {
+                if (lblCurrPageBugs.Visibility == Visibility.Collapsed) lblCurrPageBugs.Visibility = Visibility.Visible;
+                if (spBugs.Visibility == Visibility.Collapsed) spBugs.Visibility = Visibility.Visible;
+            }
+
+            #endregion 
+
+            bugStr = $"{spBugs.Children.Count + 1}. {bugStr}";
+            spBugs.Children.Add(new Label() { Content = bugStr, ToolTip = bugStr });
+            lblCurrPageBugs.Content = $"Bug（{spBugs.Children.Count}）";
         }
     }
 }

@@ -1,0 +1,15 @@
+﻿<Page x:Class="WPF样式收集.Pages.图片翻转切换特效.Index"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF样式收集.Pages.图片翻转切换特效"
+       Height="600" Width="700"
+      Title="Index">
+    <UniformGrid Rows="2" Columns="2" Margin="50,20,50,50">
+        <local:MyImageButton NormalImage="/Resources/images1.jpg" HoverImage="/Resources/images2.jpg" Margin="10"></local:MyImageButton>
+        <local:MyImageButton NormalImage="/Resources/images1.jpg" HoverImage="/Resources/images2.jpg" Margin="10"></local:MyImageButton>
+        <local:MyImageButton NormalImage="/Resources/images1.jpg" HoverImage="/Resources/images2.jpg" Margin="10"></local:MyImageButton>
+        <local:MyImageButton NormalImage="/Resources/images1.jpg" HoverImage="/Resources/images2.jpg" Margin="10"></local:MyImageButton>
+    </UniformGrid>
+</Page>

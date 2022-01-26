@@ -66,6 +66,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Global.cs" />
     <Compile Include="LeftMenuInfo.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -144,6 +145,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\图片变换动画\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\图片翻转切换特效\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\图片翻转切换特效\MyImageButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -276,6 +285,12 @@
     <Compile Include="Pages\图片变换动画\InterlacedAnimation.cs" />
     <Compile Include="Pages\图片变换动画\RadialAnimation.cs" />
     <Compile Include="Pages\图片变换动画\WaterFallAnimation.cs" />
+    <Compile Include="Pages\图片翻转切换特效\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\图片翻转切换特效\MyImageButton.xaml.cs">
+      <DependentUpon>MyImageButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\悬停视差效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
@@ -372,6 +387,8 @@
   <ItemGroup>
     <Resource Include="Resources\add.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\images2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

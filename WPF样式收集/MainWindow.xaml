@@ -202,8 +202,17 @@
                     <Image Source="/Resources/close.png" ToolTip="退出" MouseDown="btnClose_Click"/>
                 </StackPanel>
             </Grid>
-            <Border BorderThickness="1" BorderBrush="Black" VerticalAlignment="Bottom" Background="White" Margin="180,0,0,0" Width="200" Height="50" HorizontalAlignment="Center" MouseDown="bHeader_MouseDown">
-                <Label Content="拖动我来移动窗体" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Border BorderThickness="1" BorderBrush="Black" VerticalAlignment="Bottom" Background="White" Width="200" HorizontalAlignment="Right" MouseDown="bMove_MouseDown">
+                <StackPanel MinHeight="50">
+                    <Label Content="拖动我来移动窗体" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    
+                    <!--显示页面中现存的Bug   Start-->
+                    <Label x:Name="lblCurrPageBugs" Content="Bug（2）" Visibility="Collapsed" Foreground="Red" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <StackPanel x:Name="spBugs" Visibility="Collapsed">
+                        <Label Content="" ToolTip=""/>
+                    </StackPanel>
+                    <!--显示页面中现存的Bug   End-->
+                </StackPanel>
             </Border>
         </Grid>
     </Border>
