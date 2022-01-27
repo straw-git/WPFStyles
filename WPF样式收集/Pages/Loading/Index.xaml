@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:WPF样式收集.Pages.Loading"
       Height="600" Width="700" 
       Title="Index">
-    <Grid>
+    <Grid Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="100"/>
