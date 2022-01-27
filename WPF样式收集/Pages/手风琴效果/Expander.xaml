@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="WPF样式收集.Pages.手风琴效果.Expander"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF样式收集.Pages.手风琴效果">
+    <UserControl.Resources>
+        <Style x:Key="ExpanderLeftHeaderStyle" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border>
+                            <Grid Background="Transparent" SnapsToDevicePixels="True">
+                                <ContentPresenter HorizontalAlignment="Center" RecognizesAccessKey="True" SnapsToDevicePixels="True" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MyExpanderStyle" TargetType="{x:Type Expander}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Expander}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ToggleButton x:Name="HeaderSite" Width="100" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}" Content="{TemplateBinding Header}" 
+                                              Foreground="{TemplateBinding Foreground}" FontWeight="{TemplateBinding FontWeight}" FontStyle="{TemplateBinding FontStyle}" FontStretch="{TemplateBinding FontStretch}" FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}" 
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="-2,0,0,0" MinWidth="0" MinHeight="0" Padding="0" Style="{StaticResource ExpanderLeftHeaderStyle}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsExpanded" Value="true">
+                                <Trigger.EnterActions>
+                                    <StopStoryboard BeginStoryboardName="FoldAnimation">
+                                    </StopStoryboard>
+                                    <BeginStoryboard x:Name="ExpanderAnimation">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="HeaderSite" Storyboard.TargetProperty="Width" From="100" To="300" Duration="0:0:0.5" AutoReverse="False" RepeatBehavior="1x"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                            </Trigger>
+                            <Trigger Property="IsExpanded" Value="false">
+                                <Trigger.EnterActions>
+                                    <StopStoryboard BeginStoryboardName="ExpanderAnimation">
+                                    </StopStoryboard>
+                                    <BeginStoryboard x:Name="FoldAnimation">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="HeaderSite" Storyboard.TargetProperty="Width" From="400" To="100" Duration="0:0:0.5" AutoReverse="False" RepeatBehavior="1x"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MyListBoxStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                        <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="{TemplateBinding Background}" Padding="0" SnapsToDevicePixels="true">
+                            <ScrollViewer Focusable="false" Padding="0">
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="DimGray">
+        <ListBox x:Name="ExpanderItemBox" Margin="50" Style="{DynamicResource MyListBoxStyle}" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Height="300" ItemsSource="{Binding}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Expander Tag="{Binding}" IsExpanded="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBoxItem}, Path=IsSelected}" 
+                              Style="{DynamicResource MyExpanderStyle}" Foreground="White" FontSize="62" Height="300">
+                        <Expander.Header>
+                            <Grid>
+                                <Image Source="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Expander}, Path=Tag.ImgUrl}" Height="300" Width="400" Stretch="Fill" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Expander}, Path=Tag.Title}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                        </Expander.Header>
+                    </Expander>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

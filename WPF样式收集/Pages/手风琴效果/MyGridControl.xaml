@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="WPF样式收集.Pages.手风琴照片墙效果.MyGridControl"
+﻿<UserControl x:Class="WPF样式收集.Pages.手风琴效果.MyGridControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WPF样式收集.Pages.手风琴照片墙效果">
+             xmlns:local="clr-namespace:WPF样式收集.Pages.手风琴效果">
     <UserControl.Resources>
         <local:GridLengthAnimation x:Key="cellTopAnimation" Duration="0:0:0.5" FillBehavior="HoldEnd" Storyboard.TargetName="cellTop" Storyboard.TargetProperty="Height"></local:GridLengthAnimation>
         <local:GridLengthAnimation x:Key="cellBotAnimation" Duration="0:0:0.5" FillBehavior="HoldEnd" Storyboard.TargetName="cellBot" Storyboard.TargetProperty="Height"></local:GridLengthAnimation>

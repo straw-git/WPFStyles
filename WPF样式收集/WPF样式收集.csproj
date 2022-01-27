@@ -172,11 +172,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\手风琴照片墙效果\Index.xaml">
+    <Page Include="Pages\手风琴效果\Expander.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\手风琴照片墙效果\MyGridControl.xaml">
+    <Page Include="Pages\手风琴效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\手风琴效果\MyGridControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -316,11 +320,15 @@
     <Compile Include="Pages\悬停视差效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\手风琴照片墙效果\GridLengthAnimation.cs" />
-    <Compile Include="Pages\手风琴照片墙效果\Index.xaml.cs">
+    <Compile Include="Pages\手风琴效果\Expander.xaml.cs">
+      <DependentUpon>Expander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\手风琴效果\ExpanderClass.cs" />
+    <Compile Include="Pages\手风琴效果\GridLengthAnimation.cs" />
+    <Compile Include="Pages\手风琴效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\手风琴照片墙效果\MyGridControl.xaml.cs">
+    <Compile Include="Pages\手风琴效果\MyGridControl.xaml.cs">
       <DependentUpon>MyGridControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\擦除效果\Index.xaml.cs">

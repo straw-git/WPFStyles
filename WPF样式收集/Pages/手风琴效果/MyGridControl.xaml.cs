@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF样式收集.Pages.手风琴照片墙效果
+namespace WPF样式收集.Pages.手风琴效果
 {
     /// <summary>
     /// MyGridControl.xaml 的交互逻辑

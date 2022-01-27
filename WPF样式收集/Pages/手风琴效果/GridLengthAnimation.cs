@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace WPF样式收集.Pages.手风琴照片墙效果
+namespace WPF样式收集.Pages.手风琴效果
 {
     public class GridLengthAnimation : AnimationTimeline
     {
