@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="WPF样式收集.Pages.图片环形旋转轮动效果.MyImageBox"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="MyUserControl"
+             Cursor="Hand">
+    <Border CornerRadius="10" Background="Black" BorderThickness="1" BorderBrush="Gray">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="20" Color="Black" Direction="-90" ShadowDepth="10" Opacity="0.5"></DropShadowEffect>
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Source="{Binding DisplayImage,ElementName=MyUserControl}" Stretch="Uniform" Margin="10"></Image>
+            <Label Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" FontSize="16" Content="{Binding ImageTitle,ElementName=MyUserControl}"></Label>
+        </Grid>
+    </Border>
+</UserControl>

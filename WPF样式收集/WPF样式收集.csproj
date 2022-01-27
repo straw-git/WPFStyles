@@ -148,6 +148,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\图片环形旋转轮动效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\图片环形旋转轮动效果\MyImageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\图片翻转切换特效\Index.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -285,6 +293,13 @@
     <Compile Include="Pages\图片变换动画\InterlacedAnimation.cs" />
     <Compile Include="Pages\图片变换动画\RadialAnimation.cs" />
     <Compile Include="Pages\图片变换动画\WaterFallAnimation.cs" />
+    <Compile Include="Pages\图片环形旋转轮动效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\图片环形旋转轮动效果\MyCanvas.cs" />
+    <Compile Include="Pages\图片环形旋转轮动效果\MyImageBox.xaml.cs">
+      <DependentUpon>MyImageBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\图片翻转切换特效\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
