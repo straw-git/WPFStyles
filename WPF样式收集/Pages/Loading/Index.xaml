@@ -8,15 +8,16 @@
       Title="Index">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition/>
             <RowDefinition Height="100"/>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <local:LoadingLeft2Right/>
-        </Grid>
-        <Grid Grid.Row="1" >
+        <Grid Grid.Row="0" >
             <local:LoadingCircle/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <local:LoadingWave Width="700" Height="100" FontSize="80" Value="0"></local:LoadingWave>
+            <local:LoadingLeft2Right/>
         </Grid>
         <Grid Grid.Row="2">
             <local:LoadingPendulum/>

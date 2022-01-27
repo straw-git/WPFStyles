@@ -132,6 +132,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Loading\LoadingWave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Welcome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -275,6 +279,9 @@
     </Compile>
     <Compile Include="Pages\Loading\LoadingPendulum.xaml.cs">
       <DependentUpon>LoadingPendulum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Loading\LoadingWave.xaml.cs">
+      <DependentUpon>LoadingWave.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
