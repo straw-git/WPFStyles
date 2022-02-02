@@ -44,5 +44,10 @@ namespace WPF样式收集.Pages.背景动画
         {
             bgFrame.Source = new Uri("/Pages/背景动画/BG4.xaml", UriKind.RelativeOrAbsolute);
         }
+
+        private void btnBG5_Click(object sender, RoutedEventArgs e)
+        {
+            bgFrame.Source = new Uri("/Pages/背景动画/BG5.xaml", UriKind.RelativeOrAbsolute);
+        }
     }
 }

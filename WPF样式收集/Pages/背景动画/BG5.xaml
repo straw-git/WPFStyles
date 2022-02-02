@@ -1,0 +1,14 @@
+﻿<Page x:Class="WPF样式收集.Pages.背景动画.BG5"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF样式收集.Pages.背景动画"
+      Height="600" Width="700"  Loaded="Page_Loaded" Unloaded="Page_Unloaded"
+      Title="Index">
+
+    <Grid Background="#FF072159" MouseMove="Grid_MouseMove" MouseLeave="Grid_MouseLeave">
+        <Grid Name="grid_lineContainer"/>
+        <Canvas Name="cvs_particleContainer"/>
+    </Grid>
+</Page>

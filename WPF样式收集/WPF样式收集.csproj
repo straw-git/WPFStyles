@@ -192,6 +192,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\背景动画\BG5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\背景动画\BG4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -341,6 +345,11 @@
     <Compile Include="Pages\擦除效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\背景动画\BG5.xaml.cs">
+      <DependentUpon>BG5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\背景动画\Particle.cs" />
+    <Compile Include="Pages\背景动画\ParticleSystem.cs" />
     <Compile Include="Pages\背景动画\BG4.xaml.cs">
       <DependentUpon>BG4.xaml</DependentUpon>
     </Compile>

@@ -8,11 +8,12 @@
       Title="Index">
     <Grid>
         <Frame x:Name="bgFrame" Source="/Pages/Welcome.xaml"  NavigationUIVisibility="Hidden"/>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Margin="20,0,0,0" Content="背景动画1" x:Name="btnBG1" Click="btnBG1_Click" Height="30" Width="80" />
-            <Button Margin="20,0,0,0" Content="背景灯光效果" x:Name="btnBG2" Click="btnBG2_Click" Height="30" Width="100" />
-            <Button Margin="20,0,0,0" Content="平面三角形3D运动效果" x:Name="btnBG3" Click="btnBG3_Click" Height="30" Width="140" />
-            <Button Margin="20,0,0,0" Content="星空背景" x:Name="btnBG4" Click="btnBG4_Click" Height="30" Width="80" />
-        </StackPanel>
+        <WrapPanel ItemHeight="30" Width="500" VerticalAlignment="Top">
+            <Button Margin="10,10,0,0" Content="粒子背景动画" x:Name="btnBG5" Click="btnBG5_Click"   />
+            <Button Margin="10,10,0,0" Content="常规动画" x:Name="btnBG1" Click="btnBG1_Click"   />
+            <Button Margin="10,10,0,0" Content="背景灯光效果" x:Name="btnBG2" Click="btnBG2_Click"  />
+            <Button Margin="10,10,0,0" Content="平面三角形3D运动效果" x:Name="btnBG3" Click="btnBG3_Click" />
+            <Button Margin="10,10,0,0" Content="星空背景" x:Name="btnBG4" Click="btnBG4_Click"   />
+        </WrapPanel>
     </Grid>
 </Page>
