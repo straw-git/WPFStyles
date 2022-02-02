@@ -1,0 +1,143 @@
+﻿<Page x:Class="WPF样式收集.Pages.仿Glitch闪烁特效.Index"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF样式收集.Pages.仿Glitch闪烁特效"
+      Height="600" Width="700"  Unloaded="Page_Unloaded"
+      Title="Index">
+
+    <Grid Width="600" Height="300" ClipToBounds="True">
+        <Image Name="myBgImage" Source="/Resources/images1.jpg" Stretch="Fill"></Image>
+        <Grid x:Name="myAnimation1">
+            <Image Name="myGeometryImage1" Source="/Resources/images1.jpg" Stretch="Fill">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="180"></RotateTransform>
+                        <TranslateTransform X="600" Y="300"></TranslateTransform>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Path Fill="Transparent">
+                <Path.Data>
+                    <RectangleGeometry x:Name="myRectangleGeometry1" Rect="0,0,600,0"/>
+                </Path.Data>
+                <Path.Triggers>
+                    <EventTrigger RoutedEvent="Path.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <RectAnimationUsingKeyFrames Storyboard.TargetName="myRectangleGeometry1" Storyboard.TargetProperty ="Rect" Duration="0:0:5" FillBehavior="HoldEnd" RepeatBehavior="Forever">
+                                    <DiscreteRectKeyFrame Value="0,10,600,10" KeyTime="0:0:1" />
+                                    <SplineRectKeyFrame Value="0,50,600,0" KeyTime="0:0:1.5" KeySpline="0.5,0.0 0.8,0.0"  />
+                                    <DiscreteRectKeyFrame Value="0,50,600,10" KeyTime="0:0:1.8" />
+                                    <LinearRectKeyFrame Value="0,150,600,0" KeyTime="0:0:2" />
+                                    <SplineRectKeyFrame Value="0,200,600,30" KeyTime="0:0:2.3" KeySpline="0.6,0.0 0.9,0.0"  />
+                                    <LinearRectKeyFrame Value="0,100,600,10" KeyTime="0:0:2.5" />
+                                    <LinearRectKeyFrame Value="0,30,600,0" KeyTime="0:0:3" />
+                                </RectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Path.Triggers>
+            </Path>
+        </Grid>
+        <Grid x:Name="myAnimation2">
+            <Image Name="myGeometryImage2" Source="/Resources/images1.jpg" Stretch="Fill">
+                <Image.RenderTransform>
+                    <ScaleTransform ScaleX="1.05"></ScaleTransform>
+                </Image.RenderTransform>
+            </Image>
+            <Path Fill="Transparent">
+                <Path.Data>
+                    <RectangleGeometry x:Name="myRectangleGeometry2" Rect="0,0,600,0"/>
+                </Path.Data>
+                <Path.Triggers>
+                    <EventTrigger RoutedEvent="Path.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <RectAnimationUsingKeyFrames Storyboard.TargetName="myRectangleGeometry2" Storyboard.TargetProperty ="Rect" Duration="0:0:5" FillBehavior="HoldEnd" RepeatBehavior="Forever">
+                                    <LinearRectKeyFrame Value="0,10,600,10" KeyTime="0:0:1" />
+                                    <SplineRectKeyFrame Value="0,50,600,50" KeyTime="0:0:1.5" KeySpline="0.5,0.0 0.8,0.0"  />
+                                    <LinearRectKeyFrame Value="0,100,600,100" KeyTime="0:0:1.8" />
+                                    <LinearRectKeyFrame Value="0,150,600,0" KeyTime="0:0:2" />
+                                    <SplineRectKeyFrame Value="0,200,600,80" KeyTime="0:0:2.3" KeySpline="0.6,0.0 0.9,0.0"  />
+                                    <LinearRectKeyFrame Value="0,100,600,50" KeyTime="0:0:2.5" />
+                                    <LinearRectKeyFrame Value="0,30,600,0" KeyTime="0:0:3" />
+                                </RectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Path.Triggers>
+            </Path>
+        </Grid>
+        <Grid x:Name="myAnimation3">
+            <Path x:Name="myPath3" Fill="Red" Opacity="0">
+                <Path.Data>
+                    <RectangleGeometry x:Name="myRectangleGeometry3" Rect="0,0,600,300"/>
+                </Path.Data>
+                <Path.Triggers>
+                    <EventTrigger RoutedEvent="Path.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="myPath3" Duration="0:0:5" FillBehavior="HoldEnd" RepeatBehavior="Forever">
+                                    <DoubleAnimationUsingKeyFrames.KeyFrames>
+                                        <LinearDoubleKeyFrame Value="0.15" KeyTime="0:0:1" />
+                                        <SplineDoubleKeyFrame Value="0" KeyTime="0:0:2" KeySpline="0.6,0.0 0.9,0.00" />
+                                        <LinearDoubleKeyFrame Value="0.15" KeyTime="0:0:2.5" />
+                                        <SplineDoubleKeyFrame Value="0" KeyTime="0:0:3" KeySpline="0.6,0.0 0.9,0.00" />
+                                    </DoubleAnimationUsingKeyFrames.KeyFrames>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Path.Triggers>
+            </Path>
+        </Grid>
+        <Grid x:Name="myTextAnimation1">
+            <TextBlock x:Name="myText1" Text="演示文字" Foreground="White" FontSize="100" FontFamily="Arial Black" Width="600" Height="120" TextAlignment="Center">
+                <TextBlock.Triggers>
+                    <EventTrigger RoutedEvent="TextBlock.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="myText1" Duration="0:0:5" FillBehavior="HoldEnd" RepeatBehavior="Forever">
+                                    <DoubleAnimationUsingKeyFrames.KeyFrames>
+                                        <DiscreteDoubleKeyFrame Value="0" KeyTime="0:0:2.5" />
+                                        <DiscreteDoubleKeyFrame Value="1" KeyTime="0:0:3.5" />
+                                    </DoubleAnimationUsingKeyFrames.KeyFrames>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </TextBlock.Triggers>
+            </TextBlock>
+        </Grid>
+        <Grid x:Name="myTextAnimation2">
+            <TextBlock x:Name="myText2" Text="演示文字" Foreground="White" FontSize="100" FontFamily="Arial Black" Width="600" Height="120" TextAlignment="Center">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="180"></RotateTransform>
+                        <TranslateTransform X="600" Y="120"></TranslateTransform>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Path Fill="Transparent">
+                <Path.Data>
+                    <RectangleGeometry x:Name="myTextRectangleGeometry" Rect="0,0,600,0"/>
+                </Path.Data>
+                <Path.Triggers>
+                    <EventTrigger RoutedEvent="Path.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <RectAnimationUsingKeyFrames Storyboard.TargetName="myTextRectangleGeometry" Storyboard.TargetProperty ="Rect" Duration="0:0:5" FillBehavior="HoldEnd" RepeatBehavior="Forever">
+                                    <SplineRectKeyFrame Value="0,150,600,5" KeyTime="0:0:3" KeySpline="0.8,0.0 0.9,0.0"/>
+                                    <SplineRectKeyFrame Value="0,250,600,5" KeyTime="0:0:3.3" KeySpline="0.5,0.0 0.8,0.0"  />
+                                    <LinearRectKeyFrame Value="0,0,600,0" KeyTime="0:0:3.5" />
+                                </RectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Path.Triggers>
+            </Path>
+        </Grid>
+    </Grid>
+</Page>

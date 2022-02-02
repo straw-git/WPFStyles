@@ -1,5 +1,8 @@
 # WPFStyles
-WPF中比较特殊的窗体、页面样式动画收集，持续更新...
+WPF中比较特殊的窗体、页面样式动画收集，持续更新...  
+开发环境：  
+VS2019  
+.NETFramework472  
 
 # 现有动画
 3D立方体波浪墙效果  
@@ -22,7 +25,8 @@ Loading（4个）
 3D发光立方体效果  
 图片翻转切换特效  
 图片环形旋转轮动效果  
+仿Glitch闪烁特效
 
 
 
-# [效果图](https://zhuanlan.zhihu.com/p/459008647)
+# [效果图(知乎)](https://zhuanlan.zhihu.com/p/459008647)
