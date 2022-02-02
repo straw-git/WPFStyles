@@ -25,6 +25,8 @@ namespace WPF样式收集.Pages._3D切图式过渡效果
         {
             InitializeComponent();
 
+            Global.MainWindow.SetBugs("需要注意图片尺寸");
+
             List<BitmapImage> ls_adv_img = new List<BitmapImage>();
             List<string> listAdv = GetUserImages(AppDomain.CurrentDomain.BaseDirectory+ "Images/3D切图式过渡效果");
             foreach (string a in listAdv)
