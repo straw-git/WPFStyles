@@ -112,6 +112,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\DNA螺旋粒子动画\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Loading\EllipsePendulum.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -276,6 +280,11 @@
     <Compile Include="Pages\3D翻转\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DNA螺旋粒子动画\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DNA螺旋粒子动画\Particle.cs" />
+    <Compile Include="Pages\DNA螺旋粒子动画\ParticleSystem.cs" />
     <Compile Include="Pages\Loading\EllipseCircleAnimation.cs" />
     <Compile Include="Pages\Loading\EllipsePendulum.xaml.cs">
       <DependentUpon>EllipsePendulum.xaml</DependentUpon>
