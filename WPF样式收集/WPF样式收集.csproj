@@ -196,6 +196,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\水珠效果按钮组\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\水珠效果按钮组\UCWaterDropsButtonGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\背景动画\BG5.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -353,6 +361,12 @@
     </Compile>
     <Compile Include="Pages\擦除效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\水珠效果按钮组\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\水珠效果按钮组\UCWaterDropsButtonGroup.xaml.cs">
+      <DependentUpon>UCWaterDropsButtonGroup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\背景动画\BG5.xaml.cs">
       <DependentUpon>BG5.xaml</DependentUpon>

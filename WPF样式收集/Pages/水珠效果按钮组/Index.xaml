@@ -1,0 +1,23 @@
+﻿<Page x:Class="WPF样式收集.Pages.水珠效果按钮组.Index"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF样式收集.Pages.水珠效果按钮组"
+      Height="600" Width="700"  Loaded="Page_Loaded"
+      Title="Index">
+    <Page.Resources>
+        <PathGeometry x:Key="glyphicon-home">m 0 452.3622 656 -644.00002 644 644.00002 h -200 v 600 H 800 v -400 H 500 v 400 H 200 v -600 H 0 z</PathGeometry>
+        <Path x:Key="glyphicon-envelope-path" Width="24" Height="24" Fill="White" Stretch="Fill" Data="m 0 1052.3622 400 -400 200 200 200 -200 400 400 H 0 z m 0 -200 v -600 l 300 300 z M 0 52.362183 600 655.3622 1200 52.362183 H 0 z m 900 500.000017 300 -300 v 600 z"></Path>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Foreground="Red" Text="参考网址：https://www.cnblogs.com/tsliwei/p/8041928.html"/>
+        <TextBlock Margin="0,30,0,0" Name="text" Foreground="Red"></TextBlock>
+        <local:UCWaterDropsButtonGroup Grid.Column="0" x:Name="group0" Width="100" Height="100" Click="UCWaterDropsButtonGroup_Click"></local:UCWaterDropsButtonGroup>
+        <local:UCWaterDropsButtonGroup Grid.Column="1" x:Name="group1" Width="80" Height="80" Click="UCWaterDropsButtonGroup_Click"></local:UCWaterDropsButtonGroup>
+    </Grid>
+</Page>

@@ -24,7 +24,7 @@ namespace WPF样式收集.Pages.图片环形旋转轮动效果
         {
             InitializeComponent();
 
-            Global.MainWindow.SetBugs("鼠标有些粘连");
+            Global.MainWindow.SetBugs("鼠标有些粘连（当滚动结束于非图片区域时,鼠标事件未处理）");
         }
     }
 }
