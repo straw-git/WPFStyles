@@ -152,7 +152,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\仿Glitch闪烁特效\Index.xaml">
+    <Page Include="Pages\字体动画效果\Ani4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -333,8 +333,8 @@
     <Compile Include="Pages\Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\仿Glitch闪烁特效\Index.xaml.cs">
-      <DependentUpon>Index.xaml</DependentUpon>
+    <Compile Include="Pages\字体动画效果\Ani4.xaml.cs">
+      <DependentUpon>Ani4.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\图像倾斜视差效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>

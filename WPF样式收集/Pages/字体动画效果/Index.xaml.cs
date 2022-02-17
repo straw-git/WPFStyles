@@ -39,5 +39,10 @@ namespace WPF样式收集.Pages.字体动画效果
         {
             bgFrame.Source = new Uri("/Pages/字体动画效果/Ani3.xaml", UriKind.RelativeOrAbsolute);
         }
+
+        private void btnAni4_Click(object sender, RoutedEventArgs e)
+        {
+            bgFrame.Source = new Uri("/Pages/字体动画效果/Ani4.xaml", UriKind.RelativeOrAbsolute);
+        }
     }
 }

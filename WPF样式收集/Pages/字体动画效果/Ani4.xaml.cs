@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF样式收集.Pages.仿Glitch闪烁特效
+namespace WPF样式收集.Pages.字体动画效果
 {
     /// <summary>
     /// Index.xaml 的交互逻辑
     /// </summary>
-    public partial class Index : Page
+    public partial class Ani4 : Page
     {
-        public Index()
+        public Ani4()
         {
             InitializeComponent();
             CompositionTarget.Rendering += UpdateGeometry;

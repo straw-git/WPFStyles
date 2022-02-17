@@ -12,6 +12,7 @@
             <Button Margin="10,10,0,0" Content="3D字体开门效果" x:Name="btnAni1" Click="btnAni1_Click"   />
             <Button Margin="10,10,0,0" Content="霓虹灯渐变动画" x:Name="btnAni2" Click="btnAni2_Click"  />
             <Button Margin="10,10,0,0" Content="文字聚光灯效果" x:Name="btnAni3" Click="btnAni3_Click"  />
+            <Button Margin="10,10,0,0" Content="仿Glitch闪烁特效" x:Name="btnAni4" Click="btnAni4_Click"  />
         </WrapPanel>
     </Grid>
 </Page>
