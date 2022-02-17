@@ -15,7 +15,7 @@ using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF样式收集.Pages._3D字体开门效果
+namespace WPF样式收集.Pages.字体动画效果
 {
     /// <summary>
     /// MyImageControl.xaml 的交互逻辑

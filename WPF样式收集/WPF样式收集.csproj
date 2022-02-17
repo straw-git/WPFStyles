@@ -92,11 +92,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\3D字体开门效果\Index.xaml">
+    <Page Include="Pages\字体动画效果\Ani1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\3D字体开门效果\MyImageControl.xaml">
+    <Page Include="Pages\字体动画效果\Ani2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\字体动画效果\Ani3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\字体动画效果\MyImageControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\图片翻转切换特效\MyImageButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\字体动画效果\Index.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -269,10 +281,16 @@
     <Compile Include="Pages\3D发光立方体效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\3D字体开门效果\Index.xaml.cs">
-      <DependentUpon>Index.xaml</DependentUpon>
+    <Compile Include="Pages\字体动画效果\Ani1.xaml.cs">
+      <DependentUpon>Ani1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\3D字体开门效果\MyImageControl.xaml.cs">
+    <Compile Include="Pages\字体动画效果\Ani2.xaml.cs">
+      <DependentUpon>Ani2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\字体动画效果\Ani3.xaml.cs">
+      <DependentUpon>Ani3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\字体动画效果\MyImageControl.xaml.cs">
       <DependentUpon>MyImageControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\3D立方体波浪墙效果\Index.xaml.cs">
@@ -344,6 +362,9 @@
     </Compile>
     <Compile Include="Pages\图片翻转切换特效\MyImageButton.xaml.cs">
       <DependentUpon>MyImageButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\字体动画效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\悬停视差效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>

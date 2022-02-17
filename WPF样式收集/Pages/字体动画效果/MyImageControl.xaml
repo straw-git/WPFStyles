@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="WPF样式收集.Pages._3D字体开门效果.MyImageControl"
+﻿<UserControl x:Class="WPF样式收集.Pages.字体动画效果.MyImageControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" x:Name="UC"
-             xmlns:local="clr-namespace:WPF样式收集.Pages._3D字体开门效果">
+             xmlns:local="clr-namespace:WPF样式收集.Pages.字体动画效果">
     <Grid MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
         <Viewport3D >
             <Viewport3D.Camera>

@@ -1,0 +1,28 @@
+﻿<Page x:Class="WPF样式收集.Pages.字体动画效果.Ani3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF样式收集.Pages.字体动画效果"
+      Height="600" Width="700"  FontSize="80"
+      Title="Ani3">
+
+    <Canvas x:Name="containerCanvas" Margin="100">
+        <TextBlock Text="文字聚光灯效果" Foreground="LightSeaGreen"/>
+        <TextBlock x:Name="GeometryText" Text="文字聚光灯效果" Foreground="Yellow" ></TextBlock>
+        <Path Name="myPathShape" Fill="Transparent">
+            <Path.Data>
+                <EllipseGeometry x:Name="MyEllipseGeometry" Center="0,70" RadiusX="100" RadiusY="100" />
+            </Path.Data>
+            <Path.Triggers>
+                <EventTrigger RoutedEvent="Path.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <PointAnimation  Storyboard.TargetName="MyEllipseGeometry" Storyboard.TargetProperty="Center" From="0,70" To="650,70" Duration="0:0:5" AutoReverse="true" RepeatBehavior="Forever"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Path.Triggers>
+        </Path>
+    </Canvas>
+</Page>

@@ -1,0 +1,40 @@
+﻿<Page x:Class="WPF样式收集.Pages.字体动画效果.Ani2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF样式收集.Pages.字体动画效果"
+      Height="600" Width="700" 
+      Title="Ani2">
+
+    <Grid>
+        <TextBlock Text="字体霓虹灯渐变动画效果" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.75">
+            <TextBlock.Foreground>
+                <LinearGradientBrush SpreadMethod="Repeat">
+                    <LinearGradientBrush.Transform>
+                        <TranslateTransform x:Name="LinearGradientBrushTranslate" />
+                    </LinearGradientBrush.Transform>
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Offset="0.00" Color="#FFFF2B88" />
+                        <GradientStop Offset="0.14" Color="#FFFF9B6A" />
+                        <GradientStop Offset="0.28" Color="#FFF3D64E" />
+                        <GradientStop Offset="0.42" Color="#FFDCFF93" />
+                        <GradientStop Offset="0.56" Color="#FFB8F1CC" />
+                        <GradientStop Offset="0.70" Color="#FFD9B8F1" />
+                        <GradientStop Offset="0.85" Color="#FFCA7497" />
+                        <GradientStop Offset="1.00" Color="#FFFF2B88" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+            <TextBlock.Triggers>
+                <EventTrigger RoutedEvent="TextBlock.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="LinearGradientBrushTranslate" Storyboard.TargetProperty="X" From="0" To="700" Duration="0:0:2" RepeatBehavior="Forever" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </TextBlock.Triggers>
+        </TextBlock>
+    </Grid>
+</Page>

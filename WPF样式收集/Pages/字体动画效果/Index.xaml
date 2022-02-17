@@ -1,0 +1,18 @@
+﻿<Page x:Class="WPF样式收集.Pages.字体动画效果.Index"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF样式收集.Pages.字体动画效果"
+     Height="600" Width="700" 
+      Title="Index">
+    <Grid>
+        <Frame x:Name="bgFrame" Source="/Pages/Welcome.xaml"  NavigationUIVisibility="Hidden"/>
+        <WrapPanel ItemHeight="30" Width="500" VerticalAlignment="Top">
+            <Button Margin="10,10,0,0" Content="3D字体开门效果" x:Name="btnAni1" Click="btnAni1_Click"   />
+            <Button Margin="10,10,0,0" Content="霓虹灯渐变动画" x:Name="btnAni2" Click="btnAni2_Click"  />
+            <Button Margin="10,10,0,0" Content="文字聚光灯效果" x:Name="btnAni3" Click="btnAni3_Click"  />
+        </WrapPanel>
+    </Grid>
+</Page>
+
