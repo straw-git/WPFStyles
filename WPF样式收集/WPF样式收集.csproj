@@ -92,6 +92,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\圆形警示效果\Index.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\圆形警示效果\RingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\字体动画效果\Ani1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -280,6 +288,12 @@
     </Compile>
     <Compile Include="Pages\3D发光立方体效果\Index.xaml.cs">
       <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\圆形警示效果\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\圆形警示效果\RingControl.xaml.cs">
+      <DependentUpon>RingControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\字体动画效果\Ani1.xaml.cs">
       <DependentUpon>Ani1.xaml</DependentUpon>
